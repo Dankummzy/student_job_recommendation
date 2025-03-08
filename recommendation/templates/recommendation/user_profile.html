@@ -1,0 +1,26 @@
+<!-- recommendation/templates/recommendation/user_profile.html -->
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="card mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+        <h3 class="card-title text-center">Your Profile</h3>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="skills" class="form-label">Skills</label>
+                <textarea class="form-control" id="skills" name="skills" rows="3">{{ profile.skills }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Preferred Location</label>
+                <input type="text" class="form-control" id="location" name="location" value="{{ profile.location }}">
+            </div>
+            <div class="mb-3">
+                <label for="preferred_roles" class="form-label">Preferred Roles</label>
+                <textarea class="form-control" id="preferred_roles" name="preferred_roles" rows="2">{{ profile.preferred_roles }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

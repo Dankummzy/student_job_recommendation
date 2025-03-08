@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Your Recommendations{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center text-primary">Recommendations for {{ student.username }}</h3>
+        <div class="mb-3">
+            <h5>Your Skills: <span class="badge bg-info">{{ student.userprofile.skills }}</span></h5>
+            <h5>Preferred Location: <span class="badge bg-info">{{ student.userprofile.location }}</span></h5>
+            <h5>Preferred Roles: <span class="badge bg-info">{{ student.userprofile.preferred_roles }}</span></h5>
+        </div>
+        <hr class="my-4">
+        <div class="list-group">
+            {% for job in recommendations %}
+                <div class="list-group-item mb-3 border border-primary rounded shadow-sm p-3">
+                    <h4 class="text-success">{{ job.jobtitle }}</h4>
+                    <p><strong>Company:</strong> {{ job.company }}</p>
+                    <p><strong>Location:</strong> {{ job.joblocation_address }}</p>
+                    <p><strong>Skills Required:</strong> {{ job.skills }}</p>
+                    <p><strong>Salary:</strong> {{ job.salary }}</p>
+                    <p><strong>Industry:</strong> {{ job.industry }}</p>
+                    <p><strong>Functional Area:</strong> {{ job.functional_area }}</p>
+                    <p><strong>Role Category:</strong> {{ job.role_category }}</p>
+                    <p><strong>Role:</strong> {{ job.role }}</p>
+                    <p><strong>Keyskills:</strong> {{ job.keyskills }}</p>
+                    <p><strong>Desired Candidate Profile:</strong> {{ job.desired_candidate_profile }}</p>
+                    <p><strong>Education:</strong> {{ job.education }}</p>
+                    <p><strong>Company Profile:</strong> {{ job.company_profile }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

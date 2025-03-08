@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Previous Recommendations{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center text-primary">Previous Recommendations for {{ user.username }}</h3>
+        <hr class="my-4">
+        <div class="list-group">
+            {% for job in previous_recommendations %}
+                <div class="list-group-item mb-3 border border-primary rounded shadow-sm p-3">
+                    <h4 class="text-success">{{ job.jobtitle }}</h4>
+                    <p><strong>Company:</strong> {{ job.company }}</p>
+                    <p><strong>Location:</strong> {{ job.joblocation_address }}</p>
+                    <p><strong>Skills Required:</strong> {{ job.skills }}</p>
+                    <p><strong>Job Description:</strong> {{ job.job_description }}</p>
+                    <p><strong>Salary:</strong> {{ job.salary }}</p>
+                    <p><strong>Industry:</strong> {{ job.industry }}</p>
+                    <p><strong>Functional Area:</strong> {{ job.functional_area }}</p>
+                    <p><strong>Role Category:</strong> {{ job.role_category }}</p>
+                    <p><strong>Role:</strong> {{ job.role }}</p>
+                    <p><strong>Keyskills:</strong> {{ job.keyskills }}</p>
+                    <p><strong>Desired Candidate Profile:</strong> {{ job.desired_candidate_profile }}</p>
+                    <p><strong>Education:</strong> {{ job.education }}</p>
+                    <p><strong>Company Profile:</strong> {{ job.company_profile }}</p>
+                    <p><strong>Recommended on:</strong> {{ job.created_at }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

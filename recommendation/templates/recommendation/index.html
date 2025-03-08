@@ -1,0 +1,14 @@
+<!-- recommendation/templates/recommendation/index.html -->
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="text-center">
+    <h1>Welcome to the Student Job Recommendation System</h1>
+    <p class="mt-3">
+        This system helps students find jobs that match their skills, location preferences, 
+        and desired roles. By combining content-based and collaborative filtering techniques, 
+        it ensures highly personalized recommendations.
+    </p>
+    <a href="{% url 'student_input' %}" class="btn btn-primary mt-3">Get Started</a>
+</div>
+{% endblock %}
